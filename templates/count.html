@@ -1,0 +1,32 @@
+<h1>There are {{ count }} words in your text</h1>
+
+<a href="{% url 'home' %}">Start again</a>
+
+<h2>Your Text</h2>
+{{ fulltext }}
+
+<h2>Count List</h2>
+
+<table style="width:50%" border="1">
+  <tr>
+    <th colspan="2">Words used often (Decending order)</th>
+    <th colspan="2">Words (in alphabetical order)</th>
+  </tr>
+  <tr>
+    <th style="text-align:left">Word</th>
+    <th style="text-align:left">Total Count</th>
+    <th style="text-align:left">Word</th>
+    <th style="text-align:left">Total Count</th>
+  </tr>
+  {% for word, counttotal, orderedword, orderedtotal in sortedlist %}
+
+    <tr>
+      <td>{{ word }}</td>
+      <td>{{ counttotal }}</td>
+      <td>{{ orderedword }}</td>
+      <td>{{ orderedtotal }}</td>
+    </tr>
+
+  {% endfor %}
+
+</table>
